@@ -122,6 +122,8 @@ check-installed partprobe
 check-installed mkfs.fat
 check-installed mount
 check-installed umount
+check-installed grub-install
+check-installed mktemp
 
 if [[ $MISSING_PROGRAMS -ne 0 ]]; then
     log-error "aborting due to missing required commands"
