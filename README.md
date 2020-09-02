@@ -27,7 +27,7 @@ both x86_64-efi and i386-pc GRUB installed. The partitions created are:
 Just put your ISOs into the `iso/` folder in the "MULTISO" partition. You will
 need to adjust the configuration in `grub/grub.cfg` to add the correct menu
 entry.
-:
+
 Since many distributions have very similar folder structure, you will often only
 need to specify the kernel and initramfs paths. For the first image with a
 particular structure, you will also have to add a "boot helper" function that
