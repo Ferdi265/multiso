@@ -6,6 +6,8 @@ SCRIPT_DIR="$(dirname "$SCRIPT_FILE")"
 
 # environment variable defaults
 MULTISO_LOG_DEBUG=${MULTISO_LOG_DEBUG:-1}
+MULTISO_ISO_LABEL=${MULTISO_ISO_LABEL:-MULTISO}
+MULTISO_EFI_LABEL=${MULTISO_EFI_LABEL:-MULTEFI}
 
 # output color variables
 # (see 'man console_codes', section 'ECMA-48 Set Graphics Rendition')
@@ -205,14 +207,14 @@ multiso-partition() {
     log-info "creating filesystems"
 
     log-debug "creating FAT32 on '$efi_part'"
-    sudo mkfs.fat -F32 -n MULTEFI "$efi_part"
+    sudo mkfs.fat -F32 -n "${MULTISO_EFI_LABEL}" "$efi_part"
     if [[ $? -ne 0 ]]; then
         log-error "failed to format EFI partition"
         exit 1
     fi
 
     log-debug "creating FAT32 on '$iso_part'"
-    sudo mkfs.fat -F32 -n MULTISO "$iso_part"
+    sudo mkfs.fat -F32 -n "${MULTISO_ISO_LABEL}" "$iso_part"
     if [[ $? -ne 0 ]]; then
         log-error "failed to format ISO partition"
         exit 1
