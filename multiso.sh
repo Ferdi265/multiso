@@ -166,7 +166,7 @@ multiso-partition() {
         exit 1
     fi
 
-    log-info "removing old partition table"
+    log-info "removing old partition table (this may fail on first run)"
     sudo sgdisk -Z "$disk"
 
     if [[ $? -ne 0 ]]; then
