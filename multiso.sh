@@ -228,6 +228,7 @@ multiso-install() {
 
     log-info "checking file '$disk'..."
 
+    log-debug "checking for root rights"
     if sudo-test x; then
         log-error "need root rights to check disk"
         exit 1
