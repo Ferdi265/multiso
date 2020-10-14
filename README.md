@@ -22,6 +22,19 @@ both x86_64-efi and i386-pc GRUB installed. The partitions created are:
 - 2: EFI system partition (50M, for x86_64-efi GRUB, labeled "MULTEFI")
 - 3: FAT32 data partition (rest, for ISOs and GRUB config, labeled "MULTISO")
 
+## Installing
+
+To install `multiso` on a device `/dev/sdX`, you need to run the following
+commands:
+
+- `multiso.sh partition /dev/sdX`
+  On devices with a broken or unrecognized partition table this might fail on
+  first run. Rerun this command once, and it should go through without errors.
+- `multiso.sh install /dev/sdX`
+
+The partition label for the two partitions can be adjusted with the
+`MULTISO_ISO_LABEL` and `MULTISO_EFI_LABEL` environment variables.
+
 ## Adding ISOs
 
 Just put your ISOs into the `iso/` folder in the "MULTISO" partition. You will
