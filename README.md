@@ -50,7 +50,7 @@ sets the right kernel parameters. Here is an example configuration for Ubuntu:
 # ISO boot helpers -------------------------------------------------------------
 
 function iso_boot_ubuntu {
-    linux $linux_path iso-scan/filename="$iso_file" file=/cdrom/preseed/ubuntu.seed maybe-ubiquity $linux_options
+    linux $linux_path iso-scan/filename="$iso_file" file=/cdrom/preseed/ubuntu.seed maybe-ubiquity fsck.mode=skip $linux_options
 }
 
 # ISO menu entries -------------------------------------------------------------
