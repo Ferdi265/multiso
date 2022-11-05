@@ -55,7 +55,7 @@ function iso_boot_ubuntu {
 
 # ISO menu entries -------------------------------------------------------------
 
-set iso_name=ubuntu-20.04
+set iso_name=ubuntu-22.04.1
 set linux_path=/casper/vmlinuz
 set initrd_path=/casper/initrd
 set intel_ucode_path=
@@ -64,6 +64,14 @@ iso_menuentry iso_boot_ubuntu
 
 # ------------------------------------------------------------------------------
 ```
+
+Distros supported by the default grub configuration:
+
+- Arch Linux
+- Manjaro
+- Fedora
+- Ubuntu
+- Debian
 
 ## Dependencies
 
