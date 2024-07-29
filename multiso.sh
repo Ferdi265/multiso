@@ -8,6 +8,8 @@ SCRIPT_DIR="$(dirname "$SCRIPT_FILE")"
 MULTISO_LOG_DEBUG=${MULTISO_LOG_DEBUG:-1}
 MULTISO_ISO_LABEL=${MULTISO_ISO_LABEL:-MULTISO}
 MULTISO_EFI_LABEL=${MULTISO_EFI_LABEL:-MULTEFI}
+MULTISO_INTEL_UCODE=${MULTISO_INTEL_UCODE:-/boot/intel-ucode.img}
+MULTISO_AMD_UCODE=${MULTISO_AMD_UCODE:-/boot/amd-ucode.img}
 
 # output color variables
 # (see 'man console_codes', section 'ECMA-48 Set Graphics Rendition')
@@ -281,6 +283,16 @@ multiso-install() {
 
     log-info "copying default configuration"
     sudo cp "$SCRIPT_DIR/grub.cfg" "$TEMP_DIR/iso/grub/grub.cfg"
+
+    if sudo test -f "$MULTISO_INTEL_UCODE"; then
+        log-info "copying intel microcode image"
+        sudo cp "$MULTISO_INTEL_UCODE" "$TEMP_DIR/iso/grub/intel-ucode.img"
+    fi
+
+    if sudo test -f "$MULTISO_AMD_UCODE"; then
+        log-info "copying amd microcode image"
+        sudo cp "$MULTISO_AMD_UCODE" "$TEMP_DIR/iso/grub/amd-ucode.img"
+    fi
 
     log-info "installation finished"
 }
