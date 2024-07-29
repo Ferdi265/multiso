@@ -69,9 +69,10 @@ Distros supported by the default grub configuration:
 
 - Arch Linux
 - Manjaro
-- Fedora
-- Ubuntu
-- Debian
+- Fedora (currently non-working)
+- Ubuntu (24.04 too big for FAT)
+- Linux Mint
+- Debian (currently non-working)
 
 ## Dependencies
 
