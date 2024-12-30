@@ -124,6 +124,7 @@ check-installed sudo
 check-installed sgdisk
 check-installed partprobe
 check-installed mkfs.fat
+check-installed mkfs.ext4
 check-installed mount
 check-installed umount
 check-installed grub-install
@@ -216,7 +217,7 @@ multiso-partition() {
     fi
 
     log-debug "creating FAT32 on '$iso_part'"
-    sudo mkfs.fat -F32 -n "${MULTISO_ISO_LABEL}" "$iso_part"
+    sudo mkfs.ext4 -L "${MULTISO_ISO_LABEL}" "$iso_part"
     if [[ $? -ne 0 ]]; then
         log-error "failed to format ISO partition"
         exit 1
